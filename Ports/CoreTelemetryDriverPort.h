@@ -18,7 +18,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-//Author - Nyameaama Gambrah 
+//Author - Nyameaama Gambrah
 
-#include "CoreTelemetryClientPort.h"
+#ifndef CORE_TELEMETRY_DRIVER_PORT
+#define CORE_TELEMETRY_DRIVER_PORT
 
+#include"../AUAC_TYPEDEFS/AUAC_TYPES.h"
+#include"../Pipeline/Pipeline-Format.h"
+
+//Object
+PIPELINE_FORMAT *tempObject = new PIPELINE_FORMAT();
+
+class CoreTelemetryDriverPort {
+    public:
+        //Standard Error log 
+        AUAC_UBASE_8 ERROR_LOG(AUAC_BASE_STRING code){}
+
+        //Standard Data log
+        AUAC_UBASE_8 STANDARD_DATA_LOG(AUAC_BASE_STRING code){}
+
+        //Destructor 
+        ~CoreTelemetryDriverPort(){delete tempObject;}
+
+};
+#endif //CORE_TELEMETRY_DRIVER_PORT

@@ -20,27 +20,14 @@ SOFTWARE.
 */
 //Author - Nyameaama Gambrah
 
-#ifndef CORE_TELEMETRY_CLIENT_PORT
-#define CORE_TELEMETRY_CLIENT_PORT
+#ifndef PIPELINE_FORMAT_
+#define PIPELINE_FORMAT_
 
-#include"../AUAC_TYPEDEFS/AUAC_TYPES.h"
-#include"../Pipeline/Pipeline-Format.h"
+#include<../AUAC_TYPEDEFS/AUAC_TYPES.h>
 
-//Object
-PIPELINE_FORMAT *tempObject = new PIPELINE_FORMAT();
+class PIPELINE_FORMAT {
 
-class CoreTelemetryDriverPort {
-    public:
-        //Standard Error log 
-        AUAC_UBASE_8 ERROR_LOG(AUAC_BASE_STRING code){}
-
-        //Standard Data log
-        AUAC_UBASE_8 STANDARD_DATA_LOG(AUAC_BASE_STRING code){}
-
-        //Destructor 
-        ~CoreTelemetryDriverPort(){delete tempObject;}
 
 };
 
-#endif //CORE_TELEMETRY_CLIENT_PORT
-
+#endif //PIPELINE_FORMAT_
