@@ -1,4 +1,6 @@
-/*Copyright (c) 2020 AUAC-Technologies
+/*MIT License
+
+Copyright (c) 2020 Nyameaama Gambrah
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -18,18 +20,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-//Author - Nyameaama Gambrah
 
-#ifndef PIPELINE_FORMAT_
-#define PIPELINE_FORMAT_
+#ifndef JSON
+#define JSON
 
-#include"../AUAC_TYPEDEFS/AUAC_TYPES.h"
-#include"PACKAGE_JSON.h"
+#define INT 0
 
-class PIPELINE_FORMAT {
+#include"../lib/ArduinoJson-6.16.1/ArduinoJson.h"
+
+#define JSON_OBJECT StaticJsonDocument<50> 
+
+
+class PACKAGE_JSON {
     public:
+        //Function serializes JSON object and returns JSON doc in array
+        char* serializeToJson(JSON_OBJECT object);
 
+        //Function desirializes json doc array 
+        const char* deserialize(char* jsonDoc);
+        int deserialize(char* jsonDoc,int type);
+
+        //Function adds data to JSON object
+        //+1 OVERLOAD
+        int32_t addToJsonObject(JSON_OBJECT object, int32_t data);
+        char* addToJsonObject(JSON_OBJECT object, char* data);
 
 };
 
-#endif //PIPELINE_FORMAT_
+#endif
